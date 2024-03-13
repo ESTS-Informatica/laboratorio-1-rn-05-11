@@ -68,9 +68,6 @@ public class WordGuessingGame
           
         } while (!guessedWord.equals(hiddenWord));
         showResult();
-        
-        
-        
     }
     
 }
