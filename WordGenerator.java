@@ -13,6 +13,7 @@ public class WordGenerator
     public WordGenerator()
     {
         words = new ArrayList<>();
+        fillArrayList();
     }
     
     private void fillArrayList(){ 

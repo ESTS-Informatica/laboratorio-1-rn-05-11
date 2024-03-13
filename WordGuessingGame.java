@@ -11,12 +11,15 @@ public class WordGuessingGame
     private String guessedWord;
     private int numberOfTries;
     private InputReader reader;
+    private WordGenerator generatedWord;
     
     public WordGuessingGame()
     {
         reader = new InputReader();
-        hiddenWord = "abc";
-        guessedWord = "___";
+        generatedWord = new WordGenerator();
+        hiddenWord = generatedWord.generateWord();
+        guessedWord = "";
+        initializeGuessedWord();
     }
     
     public String getHiddenWord(){
@@ -48,6 +51,7 @@ public class WordGuessingGame
            int indexOfGuessedLetter = hiddenWord.indexOf(guessedLetter); 
            guessedWord = guessedWord.substring(0, indexOfGuessedLetter) +
            guessedLetter + guessedWord.substring(indexOfGuessedLetter + 1);
+           System.out.println("Palavra: " + guessedWord); 
            numberOfTries++;
            return true;
  
@@ -68,6 +72,14 @@ public class WordGuessingGame
           
         } while (!guessedWord.equals(hiddenWord));
         showResult();
+    }
+    
+    public String initializeGuessedWord(){
+        int hiddenWordlength = hiddenWord.length();
+        for(int i=0; i<hiddenWord.length(); i++){
+            guessedWord += "_";
+        }
+        return guessedWord;
     }
     
 }
